@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+            user-select: none;
+}
+
+* {
+    margin: 0;
+    font-family: 'Inter';
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    background: #f5f5f5;
+    align-items: center;
+}
+
+#logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+#home-app-hero-main {
+    padding: 0 70px;
+    display: flex;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+#home-app-hero-para {
+    margin-bottom: 25px;
+}
+
+a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
+#home-app-hero-left-area {
+    width: 50%;
+}
+
+#home-app-hero-heading {
+    font-size: 70px;
+    font-family: 'Poppins';
+}
+
+#home-app-hero-button {
+    font-size: 15px;
+    background: rgb(108, 99, 255);
+    color: #FFFFFF;
+    padding: 12px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+#home-app-hero-button:hover {
+    background: rgb(126, 119, 255);
+}
+
+.header-link {
+    margin-left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    color: black;
+}
+
+.header-link:hover {
+    background: #ffffff;
+}
+
+#home-app-hero-right-area {
+    text-align: right;
+}
+
+#home-app-hero-img {
+    width: 70%;
+}
