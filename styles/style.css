@@ -24,6 +24,15 @@
     align-items: center;
 }
 
+@media screen and (max-width: 530px) {
+    .header {
+        flex-direction: column;
+    }
+    #logo {
+        margin-bottom: 5px;
+    }
+}
+
 #logo {
     font-size: 20px;
     font-weight: 600;
@@ -34,6 +43,16 @@
     display: flex;
     align-items: center;
     height: calc(100vh - 60px);
+}
+
+@media screen and (max-width: 1000px) {
+    #home-app-hero-main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 20px;
+        padding: 0 40px;
+    }
 }
 
 #home-app-hero-para {
@@ -48,6 +67,19 @@ a {
 
 #home-app-hero-left-area {
     width: 50%;
+}
+
+@media screen and (max-width: 1000px) {
+    #home-app-hero-left-area {
+        margin: auto;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    #home-app-hero-heading {
+        font-size: 50px !important;
+    }
 }
 
 #home-app-hero-heading {
@@ -76,6 +108,15 @@ a {
     color: black;
 }
 
+@media screen and (max-width: 400px) {
+    .header-link {
+        margin-left: 6px;
+    }
+    #home-app-hero-heading {
+        font-size: 36px !important;
+    }
+}
+
 .header-link:hover {
     background: #ffffff;
 }
@@ -87,4 +128,15 @@ a {
 
 #home-app-hero-img {
     width: 70%;
+}
+
+@media screen and (max-width: 1000px) {
+    #home-app-hero-right-area {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    #home-app-hero-img {
+        width: 90%;
+    }
 }
