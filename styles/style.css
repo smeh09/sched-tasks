@@ -15,8 +15,8 @@ html {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-  }
+    width: 7px;
+}
 
 ::-webkit-scrollbar-track {
     background: #f1f1f1;
@@ -24,6 +24,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background: rgb(126, 119, 255);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -80,7 +81,7 @@ html {
 @media screen and (max-width: 1216px) {
     #home-app-hero-main {
         margin-top: 20px;
-        height: 700px;
+        height: 500px;
         margin-bottom: 50px;
     }
 }
@@ -138,12 +139,12 @@ a {
     color: black;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 480px) {
     .header-link {
-        margin-left: 6px;
+        margin-left: 4px;
     }
     #home-app-hero-heading {
-        font-size: 36px !important;
+        font-size: 30px !important;
     }
 }
 
