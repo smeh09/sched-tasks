@@ -173,7 +173,7 @@ a {
 }
 
 #features {
-    margin-bottom: 20px;
+    padding-bottom: 70px;
 }
 
 #feature-heading {
@@ -184,20 +184,22 @@ a {
 
 .feature {
     width: 25%;
-    background: #3a3a3a;
-    color: #fff;
+    background: rgb(248, 248, 248);
+    color: rgb(47, 39, 190);
+    border: 1px rgb(117, 117, 117) solid;
     margin-right: 20px;
-    padding: 40px 30px;
+    padding: 50px 30px;
     border-radius: 5px;
+    text-align: center;
     transition: all 0.3s;
 }
 
 .feature-card-heading {
     margin-bottom: 20px;
+    border-bottom: 3px rgb(72, 22, 252) solid;
     font-size: 17px;
     letter-spacing: 0.7px;
     padding-bottom: 10px;
-    border-bottom: 2px black solid;
     text-align: center;
 }
 
@@ -206,8 +208,8 @@ a {
 }
 
 .feature:hover {
-    transform: translate(0, -10px);
-    box-shadow: 0 0 7px #272727;
+    transform: translate(0, 10px);
+    box-shadow: 1px 2px 15px rgb(108, 99, 255);
 }
 
 .feature:last-child {
