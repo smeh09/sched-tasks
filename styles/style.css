@@ -208,8 +208,8 @@ a {
 }
 
 .feature:hover {
-    transform: translate(0, 10px);
-    box-shadow: 1px 2px 15px rgb(108, 99, 255);
+    transform: scale(1.05, 1.05);
+    box-shadow: 1px 5px 15px rgb(108, 99, 255);
 }
 
 .feature:last-child {
