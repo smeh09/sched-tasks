@@ -244,3 +244,38 @@ a {
         width: 80%;
     }
 }
+
+.why-use-us {
+    padding-bottom: 20%;
+    padding-left: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 30px;
+}
+
+.why-use-us > img {
+    width: 40%;
+}
+
+#why-use-us-container {
+    border-top: 2px black solid;
+}
+
+#why-use-us-1 {
+    padding-top: 20%;
+    background: #fff;
+}
+
+#why-use-us-3 {
+    padding-bottom: 50px;
+}
+
+#why-use-us-header-text {
+    font-size: 30px;
+    padding-top: 50px;
+    width: 190px;
+    margin: auto;
+    padding-bottom: 5px;
+    border-bottom: 2px rgb(108, 99, 255) solid;
+    text-align: center;
+}
