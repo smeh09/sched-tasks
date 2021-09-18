@@ -37,6 +37,10 @@ html {
     box-sizing: border-box;
 }
 
+.header {
+    z-index: 10;
+}
+
 .big {
     display: flex;
     justify-content: space-between;
@@ -211,6 +215,7 @@ a {
     margin-right: 20px;
     padding: 50px 30px;
     border-radius: 5px;
+    z-index: 1;
     text-align: center;
     transition: all 0.3s;
 }

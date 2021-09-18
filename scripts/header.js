@@ -1,5 +1,4 @@
 const header = document.querySelector('.header');
-console.log(header);
 
 const setHeaderHeight = () => {
     if (window.pageYOffset > 100) {
