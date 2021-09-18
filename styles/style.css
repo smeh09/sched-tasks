@@ -61,8 +61,13 @@ html {
     align-items: center;
 }
 
+main {
+    margin-top: 4.8rem
+}
+
 @media screen and (max-width: 530px) {
     .header {
+        position: relative;
         flex-direction: column;
     }
     #logo {
