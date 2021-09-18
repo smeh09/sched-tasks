@@ -37,11 +37,27 @@ html {
     box-sizing: border-box;
 }
 
-.header {
+.big {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgb(247, 247, 247);
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.small {
+    transition: all 0.3s;
     display: flex;
     justify-content: space-between;
     padding: 18px;
-    background: #fff;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgb(247, 247, 247);
     align-items: center;
 }
 
