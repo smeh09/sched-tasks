@@ -292,7 +292,7 @@ a {
 }
 
 #why-use-us-3 {
-    background: linear-gradient(rgb(255, 191, 168), rgb(141, 99, 255));
+    background: linear-gradient(rgb(255, 191, 168), rgb(255, 191, 168), rgb(255, 191, 168), rgb(141, 99, 255));
     padding-bottom: 50px;
 }
 
