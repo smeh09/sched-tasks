@@ -143,7 +143,7 @@ a {
     font-family: 'Poppins';
 }
 
-#home-app-hero-button {
+.hero-button {
     font-size: 15px;
     background: rgb(108, 99, 255);
     color: #FFFFFF;
@@ -152,7 +152,7 @@ a {
     transition: all 0.3s;
 }
 
-#home-app-hero-button:hover {
+.hero-button:hover {
     background: rgb(126, 119, 255);
 }
 
@@ -284,12 +284,11 @@ a {
 }
 
 #why-use-us-container {
-    border-top: 2px black solid;
+    background: rgb(255, 191, 168) !important;
 }
 
 #why-use-us-1 {
     padding-top: 20%;
-    background: #fff;
 }
 
 #why-use-us-3 {
@@ -304,4 +303,39 @@ a {
     padding-bottom: 5px;
     border-bottom: 2px rgb(108, 99, 255) solid;
     text-align: center;
+}
+
+.get-started-container {
+    background-color: rgb(141, 99, 255);
+}
+
+.get-started {
+    color: white;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+}
+
+.get-started > h3 {
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+#get-started-button {
+    background: rgb(230, 230, 230);
+    color: rgb(108, 99, 255);
+}
+
+#get-started-button:hover {
+    background: white;
+}
+
+.footer {
+    text-align: center;
+    background: black;
+    color: white;
+    font-size: 12px;
+    padding: 10px;
 }
