@@ -49,7 +49,6 @@ html {
     width: 100%;
     top: 0;
     background: rgb(247, 247, 247);
-    align-items: center;
     transition: all 0.3s;
 }
 
@@ -345,7 +344,6 @@ a {
     display: flex;
     margin-top: 0;
     justify-content: space-between;
-    align-items: center;
     background: url('https://c4.wallpaperflare.com/wallpaper/1/757/189/japan-mount-fuji-clean-sky-landscape-wallpaper-preview.jpg');
     background-position: center;
     background-repeat: no-repeat;
@@ -384,6 +382,7 @@ a {
 .tasksListTasks {
     padding: 12px 20px;
     text-align: center;
+    margin: auto;
     background: #e7e7e7;
     margin: 5px;
     transition: all 0.15s;
@@ -395,8 +394,8 @@ a {
 
 #selected-lists-task {
     width: 75%;
+    padding-top: 50px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
 .selectedList {
@@ -429,4 +428,10 @@ a {
 #no-task-img {
     margin-top: 15px;
     width: 50%;
+}
+
+#add-task-button {
+    width: 40%;
+    margin-top: 20px;
+    border-radius: 0;
 }

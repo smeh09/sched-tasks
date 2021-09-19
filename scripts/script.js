@@ -8,7 +8,7 @@ let tasksNameList = [];
 
 // viewing lists
 
-const viewTasks = () => {
+const viewLists = () => {
     tasksListEl.innerHTML = '';
     tasksLists.forEach((list, index) => {
         // <div class='taskListItem'>${tasksListName}</div>
@@ -24,12 +24,35 @@ const selectedListsTask = document.querySelector('#selected-lists-task');
 
 const tasksListEl = document.querySelector('#tasks-lists');
 
+// Add tasks
+
+function addTask(taskListName) {
+    tasksLists.forEach(taskList => {
+        if (taskList["name"] === taskListName)
+        {
+            const task = prompt('Task name');
+            if (!task || task === '') return
+            taskList['tasks'].push(task);
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+            const addTaskButton = document.createElement('button');
+            addTaskButton.id = 'add-task-button';
+            addTaskButton.classList.add('btn')
+            addTaskButton.innerText = 'Add task'
+            addTaskButton.onclick = () => addTask(taskListName);
+            selectedListsTask.appendChild(addTaskButton);
+        }
+    })
+}
+
 // viewing tasks
+
 
 tasksListEl.addEventListener('click', e => {
     if (e.target.className === 'taskListItem')
     {
+
         const taskName = e.target.innerHTML;
+
         tasksLists.forEach(taskList => {
             if (taskList['name'] === taskName)
             {
@@ -47,6 +70,13 @@ tasksListEl.addEventListener('click', e => {
                 })
             }
         })
+        // <button id='add-task-button' class='btn'>Add Task</button>
+        const addTaskButton = document.createElement('button');
+        addTaskButton.id = 'add-task-button';
+        addTaskButton.classList.add('btn')
+        addTaskButton.innerText = 'Add task'
+        addTaskButton.onclick = () => addTask(e.target.innerText);
+        selectedListsTask.appendChild(addTaskButton);
     }
 })
 
@@ -59,9 +89,9 @@ function addList() {
         {
             "name": listName,
             "tasks": [
-
+                
             ],
         }
     )
-    viewTasks();
+    viewLists();
 }
