@@ -377,3 +377,7 @@ a {
 .tasksListTasks:hover {
     background: #eeeeee;
 }
+
+.selectedList {
+    background: #c4c4c4 !important;
+}

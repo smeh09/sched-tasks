@@ -37,7 +37,18 @@ tasksListEl.addEventListener('click', e => {
         tasksLists.forEach(taskList => {
             if (taskList['name'] === taskName)
             {
+                e.target.classList.add('selectedList');
                 selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+            }
+            else
+            {
+                const taskListAll = document.querySelectorAll('.taskListItem');
+                taskListAll.forEach(taskList => {
+                    if (taskList.innerHTML !== taskName)
+                    {
+                        taskList.classList.remove('selectedList');
+                    }
+                })
             }
         })
     }
