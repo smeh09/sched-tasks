@@ -414,6 +414,7 @@ a {
     text-align: center;
     cursor: pointer;
     margin-bottom: 10px;
+    border-radius: 99em;
 }
 
 .btn:hover {
