@@ -1,34 +1,30 @@
 const tasksListsEl = document.querySelector('#tasks-lists')
 
 let tasksLists = [
-    {
-        "name": "Game dev",
-        "tasks": [
-            "learn godot",
-            "make small games",
-            "make dream game"
-        ]
-    },
-    {
-        "name": "Exams prep",
-        "tasks": [
-            "revise for science exams",
-            "get ready for maths exams",
-            "do maths exam practise questions"
-        ]
-    }
+
 ];
 
-const tasksNameList = [];
+let tasksNameList = [];
 
-tasksLists.forEach((list, index) => {
-    tasksNameList.push(list["name"]);
-    tasksListsEl.innerHTML = tasksNameList.map(tasksListName => `<div class='taskListItem'>${tasksListName}</div>`).join('');
-});
+// viewing lists
+
+const viewTasks = () => {
+    tasksListEl.innerHTML = '';
+    tasksLists.forEach((list, index) => {
+        // <div class='taskListItem'>${tasksListName}</div>
+        const taskListItemEl = document.createElement('div');
+        taskListItemEl.innerText = list['name'];
+        taskListItemEl.classList.add('taskListItem');
+
+        tasksListEl.appendChild(taskListItemEl);
+    });
+}
 
 const selectedListsTask = document.querySelector('#selected-lists-task');
 
 const tasksListEl = document.querySelector('#tasks-lists');
+
+// viewing tasks
 
 tasksListEl.addEventListener('click', e => {
     if (e.target.className === 'taskListItem')
@@ -53,3 +49,18 @@ tasksListEl.addEventListener('click', e => {
         })
     }
 })
+
+// Adding lists
+
+function addList() {
+    const listName = prompt('Tasks List name');
+    tasksLists.push(
+        {
+            "name": listName,
+            "tasks": [
+
+            ],
+        }
+    )
+    viewTasks();
+}

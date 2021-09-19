@@ -381,3 +381,21 @@ a {
 .selectedList {
     background: #c4c4c4 !important;
 }
+
+.btn {
+    background: rgb(108, 99, 255);
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    transition: all 0.3s;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.btn:hover {
+    background: rgb(150, 145, 255);
+    box-shadow: 1px 2px 7px rgb(92, 92, 92);
+}
