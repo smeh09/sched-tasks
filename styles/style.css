@@ -343,25 +343,31 @@ a {
 
 #app-main {
     display: flex;
+    margin-top: 0;
     justify-content: space-between;
-    padding: 30px;
     align-items: center;
-    background: url('https://wallpaperaccess.com/full/2109.jpg');
+    background: url('https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: calc(100vh - 75px);
+    height: 100vh;
     color: white;
 }
 
 .taskListItem {
     padding: 12px 20px;
     text-align: center;
+    color: black;
     cursor: pointer;
     background: #e7e7e7;
-    border-bottom: 1px solid rgb(216, 216, 216);
+    margin-bottom: 6px;
     transition: all 0.2s;
-    border-radius: 5px;
+}
+
+#tasks-list-container {
+    width: 25%;
+    background: black;
+    height: 100%;
 }
 
 .taskListItem:last-child {
@@ -384,6 +390,12 @@ a {
     background: #eeeeee;
 }
 
+#selected-lists-task {
+    width: 75%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .selectedList {
     background: #c4c4c4 !important;
 }
@@ -393,12 +405,12 @@ a {
     color: white;
     border: none;
     outline: none;
-    border-radius: 5px;
-    padding: 10px 15px;
+    width: 100%;
+    padding: 15px 30px;
     transition: all 0.3s;
     text-align: center;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .btn:hover {
