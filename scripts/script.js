@@ -1,8 +1,6 @@
 const tasksListsEl = document.querySelector('#tasks-lists')
 
-let tasksLists = [
-
-];
+let tasksLists = [];
 
 let tasksNameList = [];
 
@@ -34,6 +32,7 @@ function addTask(taskListName) {
             if (!task || task === '') return
             taskList['tasks'].push(task);
             selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+            
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
             addTaskButton.classList.add('btn')
