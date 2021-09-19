@@ -384,8 +384,16 @@ a {
     text-align: center;
     width: 50%;
     margin: auto;
-    background: #e7e7e7;
+    opacity: 0.3;
     transition: all 0.15s;
+}
+
+.tasksListTasks:nth-child(even) {
+    background: #c9c9c9;
+}
+
+.tasksListTasks:nth-child(odd) {
+    background: #e7e7e7;
 }
 
 .tasksListTasks:hover {
