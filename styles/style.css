@@ -346,7 +346,7 @@ a {
     margin-top: 0;
     justify-content: space-between;
     align-items: center;
-    background: url('https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80');
+    background: url('https://c4.wallpaperflare.com/wallpaper/1/757/189/japan-mount-fuji-clean-sky-landscape-wallpaper-preview.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -367,6 +367,7 @@ a {
 #tasks-list-container {
     width: 25%;
     background: black;
+    opacity: 0.5;
     height: 100%;
 }
 
