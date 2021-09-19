@@ -420,3 +420,12 @@ a {
     background: rgb(150, 145, 255);
     box-shadow: 1px 2px 7px rgb(92, 92, 92);
 }
+
+#tasks-lists {
+    text-align: center;
+}
+
+#no-task-img {
+    margin-top: 15px;
+    width: 50%;
+}
