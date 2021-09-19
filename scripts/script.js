@@ -54,6 +54,7 @@ tasksListEl.addEventListener('click', e => {
 
 function addList() {
     const listName = prompt('Tasks List name');
+    if (!listName || listName === '') return
     tasksLists.push(
         {
             "name": listName,

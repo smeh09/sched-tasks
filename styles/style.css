@@ -346,6 +346,12 @@ a {
     justify-content: space-between;
     padding: 30px;
     align-items: center;
+    background: url('https://wallpaperaccess.com/full/2109.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: calc(100vh - 75px);
+    color: white;
 }
 
 .taskListItem {
