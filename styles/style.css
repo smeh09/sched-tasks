@@ -360,7 +360,7 @@ a {
     color: black;
     cursor: pointer;
     background: #e7e7e7;
-    margin-bottom: 6px;
+    border-bottom: 1px solid rgb(189, 189, 189);
     transition: all 0.2s;
 }
 
@@ -376,6 +376,8 @@ a {
 
 .taskListItem:hover {
     background: #eeeeee;
+    transform: translate(0, -2px);
+    box-shadow: 0px 2px 7px rgb(150, 150, 150);
 }
 
 .tasksListTasks {
