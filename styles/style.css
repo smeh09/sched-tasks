@@ -403,6 +403,10 @@ a {
     text-align: center;
 }
 
+.why-use-us > img {
+    width: 40%;
+}
+
 .selectedList {
     background: #c4c4c4 !important;
 }
@@ -479,7 +483,19 @@ a {
     position: fixed;
     background: rgb(108, 99, 255);
     transition: all 0.7s;
-    color: white;
+    opacity: 0;
     padding: 7px 16px;
     font-size: 15px;
+}
+
+.arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
 }
