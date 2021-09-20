@@ -50,7 +50,23 @@ const clearTask = (taskListName) => {
     })
     
     updateTasks(tasksLists)
-    location.reload();
+    tasksLists.forEach(taskList => {
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+    })
+    const addTaskButton = document.createElement('button');
+    addTaskButton.id = 'add-task-button';
+    addTaskButton.classList.add('btn')
+    addTaskButton.innerText = 'Add task'
+    addTaskButton.onclick = () => addTask(taskListName);
+    selectedListsTask.appendChild(addTaskButton);
+
+    //<button id='clear-button'></button>
+    const clearButton = document.createElement('button');
+    clearButton.id = 'clear-button';
+    clearButton.innerText = '🗑'
+    clearButton.title = 'Clear tasks'
+    clearButton.onclick = () => clearTask(taskListName);
+    selectedListsTask.appendChild(clearButton);
 }
 
 // Clear lists
@@ -69,7 +85,7 @@ const clearList = () => {
         tasksLists = [];
 
         updateTasks(tasksLists)
-        location.reload();
+        viewLists();
     }
 }
 
