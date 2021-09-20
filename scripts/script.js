@@ -56,10 +56,21 @@ const clearTask = (taskListName) => {
 // Clear lists
 
 const clearList = () => {
-    tasksLists = [];
-    
-    updateTasks(tasksLists)
-    location.reload();
+
+    if (tasksLists.length === 0)
+    {
+        alert("You have no lists! ");
+        return;
+    }
+
+    const confirmerBox = confirm("Are you sure you want to clear all the tasks? ")
+    if (confirmerBox)
+    {
+        tasksLists = [];
+
+        updateTasks(tasksLists)
+        location.reload();
+    }
 }
 
 // Add tasks
