@@ -98,7 +98,10 @@ function addTask(taskListName) {
         if (taskList["name"] === taskListName)
         {
             const task = prompt('Task name');
-            if (!task || task === '') return
+            if (!task || task === '' || task === ' ') {
+                alert("Some problem occured");
+                return;
+            }
             taskList['tasks'].push(task);
             selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
             
@@ -170,7 +173,10 @@ tasksListEl.addEventListener('click', e => {
 
 function addList() {
     const listName = prompt('Tasks List name');
-    if (!listName || listName === '') return
+    if (!listName || listName === '' || listName === ' ') {
+        alert("Some problem occured");
+        return;
+    }
     tasksLists.push(
         {
             "name": listName,
