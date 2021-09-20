@@ -279,10 +279,6 @@ a {
     padding-right: 30px;
 }
 
-.why-use-us > img {
-    width: 40%;
-}
-
 #why-use-us-container {
     background: white;
 }
@@ -376,7 +372,6 @@ a {
 
 .taskListItem:hover {
     background: #eeeeee;
-    transform: translate(0, -2px);
     box-shadow: 0px 2px 7px rgb(150, 150, 150);
 }
 
@@ -413,7 +408,7 @@ a {
 }
 
 .btn {
-    background: rgb(108, 99, 255);
+    background: rgb(89, 81, 238);
     color: white;
     border: none;
     outline: none;
@@ -456,4 +451,13 @@ a {
 
 #clear-button:hover {
     background: #c4c4c4;
+}
+
+#tasks-list-add-btn {
+    font-weight: 700;
+}
+
+#tasks-list-add-btn:hover {
+    box-shadow: none;
+    background: rgb(82, 74, 221);
 }
