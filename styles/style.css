@@ -417,8 +417,6 @@ a {
     transition: all 0.3s;
     text-align: center;
     cursor: pointer;
-    margin-bottom: 10px;
-    border-radius: 99em;
 }
 
 .btn:hover {
@@ -436,15 +434,16 @@ a {
 }
 
 #add-task-button {
+    border-radius: 99em;
     width: 40%;
     margin-top: 20px;
-    border-radius: 0;
 }
 
 #clear-button {
     padding: 15px 20px;
     cursor: pointer;
     border: none;
+    border-radius: 50%;
     transition: all 0.3s;
     outline: none;
 }
@@ -460,4 +459,15 @@ a {
 #tasks-list-add-btn:hover {
     box-shadow: none;
     background: rgb(82, 74, 221);
+}
+
+#tasks-list-remove-btn {
+    background: rgb(205, 0, 0);
+    transition: all 0.3s;
+    margin-bottom: 30px;
+}
+
+#tasks-list-remove-btn:hover {
+    background: rgb(255, 0, 0);
+    box-shadow: none;
 }

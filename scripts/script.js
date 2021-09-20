@@ -53,6 +53,15 @@ const clearTask = (taskListName) => {
     location.reload();
 }
 
+// Clear lists
+
+const clearList = () => {
+    tasksLists = [];
+    
+    updateTasks(tasksLists)
+    location.reload();
+}
+
 // Add tasks
 
 function addTask(taskListName) {
@@ -75,6 +84,7 @@ function addTask(taskListName) {
             const clearButton = document.createElement('button');
             clearButton.id = 'clear-button';
             clearButton.innerText = '🗑'
+            clearButton.title = 'Clear tasks'
             clearButton.onclick = () => clearTask(taskListName);
             selectedListsTask.appendChild(clearButton);
 
