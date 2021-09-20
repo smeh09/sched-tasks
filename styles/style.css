@@ -434,8 +434,9 @@ a {
 }
 
 #add-task-button {
-    border-radius: 99em;
+    border-radius: 0.5em;
     width: 40%;
+    margin-right: 15px;
     margin-top: 20px;
 }
 

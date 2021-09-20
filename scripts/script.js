@@ -85,7 +85,8 @@ const clearList = () => {
         tasksLists = [];
 
         updateTasks(tasksLists)
-        selectedListsTask.innerHTML = `<h3>Tasks of the selected list here</h3>`
+        selectedListsTask.innerHTML = `<img style="width: 170px;margin: auto;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/no-task-3082561-2586646.png" alt="No list selected">
+        <h3 style="color: white;text-align: center; margin-top: 20px; margin-left: 30px;">No list selected</h3>`
         viewLists();
     }
 }
