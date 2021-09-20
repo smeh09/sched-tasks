@@ -98,8 +98,8 @@ function addTask(taskListName) {
         if (taskList["name"] === taskListName)
         {
             const task = prompt('Task name');
-            if (!task || task === '' || task === ' ') {
-                alert("Some problem occured");
+            if (!task || task === '' || task.trim() === '') {
+                alert("Wrong input or canceled");
                 return;
             }
             taskList['tasks'].push(task);
@@ -173,8 +173,8 @@ tasksListEl.addEventListener('click', e => {
 
 function addList() {
     const listName = prompt('Tasks List name');
-    if (!listName || listName === '' || listName === ' ') {
-        alert("Some problem occured");
+    if (!listName || listName === '' || listName.trim() === '') {
+        alert("Wrong input or canceled");
         return;
     }
     tasksLists.push(
