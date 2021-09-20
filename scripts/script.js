@@ -85,6 +85,7 @@ const clearList = () => {
         tasksLists = [];
 
         updateTasks(tasksLists)
+        selectedListsTask.innerHTML = `<h3>Tasks of the selected list here</h3>`
         viewLists();
     }
 }
