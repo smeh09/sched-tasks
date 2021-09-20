@@ -76,6 +76,7 @@ main {
     }
     #logo {
         margin-bottom: 5px;
+        text-align: center;
         font-size: 30px;
     }
 }
@@ -141,6 +142,10 @@ a {
 #home-app-hero-heading {
     font-size: 70px;
     font-family: 'Poppins';
+}
+
+.nav {
+    text-align: center;
 }
 
 .hero-button {
@@ -479,7 +484,8 @@ a {
 
 #top-link {
     margin-top: 30px;
-    margin-left: 0px;
+    right: 20px;
+    bottom: 10px;
     position: fixed;
     background: rgb(108, 99, 255);
     transition: all 0.7s;
