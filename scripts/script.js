@@ -1,6 +1,24 @@
 const tasksListsEl = document.querySelector('#tasks-lists')
+const selectedListsTask = document.querySelector('#selected-lists-task');
 
-let tasksLists = [];
+const loadTasks = () => {
+    schedTasksData = JSON.parse(localStorage.getItem('sched-tasks-data'));
+    if (schedTasksData)
+    {
+        return schedTasksData;
+    }
+    else
+    {
+        return [];
+    }
+}
+
+// update tasks
+const updateTasks = tasksList => {
+    localStorage.setItem('sched-tasks-data', JSON.stringify(tasksList));
+}
+
+let tasksLists = loadTasks();
 
 let tasksNameList = [];
 
@@ -18,9 +36,22 @@ const viewLists = () => {
     });
 }
 
-const selectedListsTask = document.querySelector('#selected-lists-task');
-
 const tasksListEl = document.querySelector('#tasks-lists');
+viewLists();
+
+// Clear tasks
+
+const clearTask = (taskListName) => {
+    tasksLists.forEach(taskList => {
+        if (taskList["name"] === taskListName)
+        {
+            taskList["tasks"] = [];
+        }
+    })
+    
+    updateTasks(tasksLists)
+    location.reload();
+}
 
 // Add tasks
 
@@ -39,6 +70,15 @@ function addTask(taskListName) {
             addTaskButton.innerText = 'Add task'
             addTaskButton.onclick = () => addTask(taskListName);
             selectedListsTask.appendChild(addTaskButton);
+
+            //<button id='clear-button'></button>
+            const clearButton = document.createElement('button');
+            clearButton.id = 'clear-button';
+            clearButton.innerText = '🗑'
+            clearButton.onclick = () => clearTask(taskListName);
+            selectedListsTask.appendChild(clearButton);
+
+            updateTasks(tasksLists);
         }
     })
 }
@@ -69,6 +109,7 @@ tasksListEl.addEventListener('click', e => {
                 })
             }
         })
+        updateTasks(tasksLists);
         // <button id='add-task-button' class='btn'>Add Task</button>
         const addTaskButton = document.createElement('button');
         addTaskButton.id = 'add-task-button';
@@ -76,6 +117,13 @@ tasksListEl.addEventListener('click', e => {
         addTaskButton.innerText = 'Add task'
         addTaskButton.onclick = () => addTask(e.target.innerText);
         selectedListsTask.appendChild(addTaskButton);
+
+        //<button id='clear-button'></button>
+        const clearButton = document.createElement('button');
+        clearButton.id = 'clear-button';
+        clearButton.innerText = '🗑'
+        clearButton.onclick = () => clearTask(e.target.innerText);
+        selectedListsTask.appendChild(clearButton);
     }
 })
 
@@ -92,5 +140,6 @@ function addList() {
             ],
         }
     )
+    updateTasks(tasksLists);
     viewLists();
 }

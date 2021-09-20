@@ -445,3 +445,15 @@ a {
     margin-top: 20px;
     border-radius: 0;
 }
+
+#clear-button {
+    padding: 15px 20px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+    outline: none;
+}
+
+#clear-button:hover {
+    background: #c4c4c4;
+}
