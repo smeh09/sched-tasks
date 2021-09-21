@@ -229,21 +229,7 @@ selectedListsTask.addEventListener('click', (e) => {
                 if (taskList.name === selectedListName)
                 {
                     tasksLists[i]['tasks'][index]['task'] = taskNewName;
-                    selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
-
-                    const addTaskButton = document.createElement('button');
-                    addTaskButton.id = 'add-task-button';
-                    addTaskButton.classList.add('btn')
-                    addTaskButton.innerText = 'Add task'
-                    addTaskButton.onclick = () => addTask(this, e.target.innerText);
-                    selectedListsTask.appendChild(addTaskButton);
-
-                    //<button id='clear-button'></button>
-                    const clearButton = document.createElement('button');
-                    clearButton.id = 'clear-button';
-                    clearButton.innerText = '🗑'
-                    clearButton.onclick = () => clearTask(e.target.innerText);
-                    selectedListsTask.appendChild(clearButton);
+                    taskListEditIcon.parentElement.parentElement.parentElement.childNodes[0].innerText = taskNewName;
 
                     updateTasks(tasksLists);
                     return;
