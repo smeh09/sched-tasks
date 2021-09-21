@@ -184,7 +184,6 @@ function addList() {
         }
     })
     if (!continuing) return;
-    console.log('hello')
     if (!listName || listName === '' || listName.trim() === '') {
         alert("Wrong input or canceled");
         return;
@@ -224,6 +223,10 @@ selectedListsTask.addEventListener('click', (e) => {
         if (taskListEditIcon === e.target)
         {
             const taskNewName = prompt('New name for this task');
+            if (!taskNewName || taskNewName === '' || taskNewName.trim() === '') {
+                alert("Wrong input or canceled");
+                return;
+            }
             selectedListName = document.querySelector('.selectedList').innerText;
             tasksLists.forEach((taskList, i) => {
                 if (taskList.name === selectedListName)

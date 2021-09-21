@@ -538,3 +538,17 @@ i {
 i:hover {
     transform: scale(1.26);
 }
+
+.taskLeftArea {
+    display: flex;
+}
+
+.doneButton {
+    margin-right: 7px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.doneButton:hover {
+    transform: scale(1.26);
+}
