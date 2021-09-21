@@ -98,6 +98,16 @@ function addTask(taskListName) {
         if (taskList["name"] === taskListName)
         {
             const task = prompt('Task name');
+            let continuing = true;
+            tasksLists.forEach(taskList => {
+                if (taskList.tasks.includes(task))
+                {
+                    alert("You cannot have same tasks name! ");
+                    continuing = false;
+                    return;
+                }
+            })
+            if (!continuing) return;
             if (!task || task === '' || task.trim() === '') {
                 alert("Wrong input or canceled");
                 return;
@@ -172,7 +182,17 @@ tasksListEl.addEventListener('click', e => {
 // Adding lists
 
 function addList() {
+    var continuing = true;
     const listName = prompt('Tasks List name');
+    tasksLists.forEach(taskList => {
+        if (taskList.name === listName) {
+            alert("You cannot have lists of the same name! ");
+            continuing = false;
+            return;
+        }
+    })
+    if (!continuing) return;
+    console.log('hello')
     if (!listName || listName === '' || listName.trim() === '') {
         alert("Wrong input or canceled");
         return;
