@@ -48,16 +48,15 @@ const clearTask = (taskListName) => {
             taskList["tasks"] = [];
         }
     })
-    
     updateTasks(tasksLists)
     tasksLists.forEach(taskList => {
-        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
     })
     const addTaskButton = document.createElement('button');
     addTaskButton.id = 'add-task-button';
     addTaskButton.classList.add('btn')
     addTaskButton.innerText = 'Add task'
-    addTaskButton.onclick = () => addTask(taskListName);
+    addTaskButton.onclick = () => addTask(this, taskListName);
     selectedListsTask.appendChild(addTaskButton);
 
     //<button id='clear-button'></button>
@@ -93,7 +92,8 @@ const clearList = () => {
 
 // Add tasks
 
-function addTask(taskListName) {
+function addTask(event, taskListName) {
+    console.log(event);
     tasksLists.forEach(taskList => {
         if (taskList["name"] === taskListName)
         {
@@ -112,7 +112,7 @@ function addTask(taskListName) {
             addTaskButton.id = 'add-task-button';
             addTaskButton.classList.add('btn')
             addTaskButton.innerText = 'Add task'
-            addTaskButton.onclick = () => addTask(taskListName);
+            addTaskButton.onclick = () => addTask(this, taskListName);
             selectedListsTask.appendChild(addTaskButton);
 
             //<button id='clear-button'></button>
@@ -160,7 +160,7 @@ tasksListEl.addEventListener('click', e => {
         addTaskButton.id = 'add-task-button';
         addTaskButton.classList.add('btn')
         addTaskButton.innerText = 'Add task'
-        addTaskButton.onclick = () => addTask(e.target.innerText);
+        addTaskButton.onclick = () => addTask(this, e.target.innerText);
         selectedListsTask.appendChild(addTaskButton);
 
         //<button id='clear-button'></button>
@@ -213,22 +213,9 @@ selectedListsTask.addEventListener('click', (e) => {
                 if (taskList.name === selectedListName)
                 {
                     tasksLists[i]['tasks'].splice(index, 1)
-                    selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
-                    updateTasks(tasksLists);
-                    // <button id='add-task-button' class='btn'>Add Task</button>
-                    const addTaskButton = document.createElement('button');
-                    addTaskButton.id = 'add-task-button';
-                    addTaskButton.classList.add('btn')
-                    addTaskButton.innerText = 'Add task'
-                    addTaskButton.onclick = () => addTask(e.target.innerText);
-                    selectedListsTask.appendChild(addTaskButton);
 
-                    //<button id='clear-button'></button>
-                    const clearButton = document.createElement('button');
-                    clearButton.id = 'clear-button';
-                    clearButton.innerText = '🗑'
-                    clearButton.onclick = () => clearTask(e.target.innerText);
-                    selectedListsTask.appendChild(clearButton);
+                    document.querySelectorAll('.tasksListTasks')[index].style.display = 'none';
+                    updateTasks(tasksLists);
                     return;
                 }
             })
