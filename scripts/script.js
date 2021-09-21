@@ -201,3 +201,37 @@ function addList() {
     updateTasks(tasksLists);
     viewLists();
 }
+
+// deleting specefic task
+
+selectedListsTask.addEventListener('click', (e) => {
+    document.querySelectorAll('.tasksListsDeleteIcon').forEach((taskListDeleteIcon, index) => {
+        if (taskListDeleteIcon === e.target)
+        {
+            selectedListName = document.querySelector('.selectedList').innerText;
+            tasksLists.forEach((taskList, i) => {
+                if (taskList.name === selectedListName)
+                {
+                    tasksLists[i]['tasks'].splice(index, 1)
+                    selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+                    updateTasks(tasksLists);
+                    // <button id='add-task-button' class='btn'>Add Task</button>
+                    const addTaskButton = document.createElement('button');
+                    addTaskButton.id = 'add-task-button';
+                    addTaskButton.classList.add('btn')
+                    addTaskButton.innerText = 'Add task'
+                    addTaskButton.onclick = () => addTask(e.target.innerText);
+                    selectedListsTask.appendChild(addTaskButton);
+
+                    //<button id='clear-button'></button>
+                    const clearButton = document.createElement('button');
+                    clearButton.id = 'clear-button';
+                    clearButton.innerText = '🗑'
+                    clearButton.onclick = () => clearTask(e.target.innerText);
+                    selectedListsTask.appendChild(clearButton);
+                    return;
+                }
+            })
+        }
+    })
+})
