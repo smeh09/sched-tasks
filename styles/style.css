@@ -552,3 +552,33 @@ i:hover {
 .doneButton:hover {
     transform: scale(1.26);
 }
+
+body {
+    overflow-x: hidden;
+}
+
+.emoji-rain {
+    position: absolute;
+    display: flex;
+    top: -30px;
+    width: 100%;
+    justify-content: center;
+    transition: all 3s;
+}
+
+.emoji-rain-playing {
+    animation-name: fall;
+    display: flex;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    background: transparent;
+    transition: all 3s;
+    animation-duration: 2s;
+}
+
+@keyframes fall {
+    0%   {background:transparent; top:0px;}
+    100% {background:transparent; top:97vh;}
+}
