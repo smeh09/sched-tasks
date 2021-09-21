@@ -529,3 +529,11 @@ a {
 .tasksRightArea > div:last-child {
     margin-right: 0;
 }
+
+i {
+    transition: all 0.3s;
+}
+
+i:hover {
+    transform: scale(1.26);
+}

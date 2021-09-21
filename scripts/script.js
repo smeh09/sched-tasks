@@ -50,7 +50,7 @@ const clearTask = (taskListName) => {
     })
     updateTasks(tasksLists)
     tasksLists.forEach(taskList => {
-        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
     })
     const addTaskButton = document.createElement('button');
     addTaskButton.id = 'add-task-button';
@@ -93,7 +93,6 @@ const clearList = () => {
 // Add tasks
 
 function addTask(event, taskListName) {
-    console.log(event);
     tasksLists.forEach(taskList => {
         if (taskList["name"] === taskListName)
         {
@@ -106,7 +105,7 @@ function addTask(event, taskListName) {
             }
             d = new Date();
             taskList['tasks'].push({task, "done": false, "id": d.getTime()});
-            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
@@ -141,7 +140,7 @@ tasksListEl.addEventListener('click', e => {
             if (taskList['name'] === taskName)
             {
                 e.target.classList.add('selectedList');
-                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             }
             else
             {
@@ -202,7 +201,7 @@ function addList() {
     viewLists();
 }
 
-// deleting specefic task
+// deleting or editing a specefic task
 
 selectedListsTask.addEventListener('click', (e) => {
     document.querySelectorAll('.tasksListsDeleteIcon').forEach((taskListDeleteIcon, index) => {
@@ -215,6 +214,37 @@ selectedListsTask.addEventListener('click', (e) => {
                     tasksLists[i]['tasks'].splice(index, 1)
 
                     document.querySelectorAll('.tasksListTasks')[index].style.display = 'none';
+                    updateTasks(tasksLists);
+                    return;
+                }
+            })
+        }
+    })
+    document.querySelectorAll('.tasksListEditIcon').forEach((taskListEditIcon, index) => {
+        if (taskListEditIcon === e.target)
+        {
+            const taskNewName = prompt('New name for this task');
+            selectedListName = document.querySelector('.selectedList').innerText;
+            tasksLists.forEach((taskList, i) => {
+                if (taskList.name === selectedListName)
+                {
+                    tasksLists[i]['tasks'][index]['task'] = taskNewName;
+                    selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+
+                    const addTaskButton = document.createElement('button');
+                    addTaskButton.id = 'add-task-button';
+                    addTaskButton.classList.add('btn')
+                    addTaskButton.innerText = 'Add task'
+                    addTaskButton.onclick = () => addTask(this, e.target.innerText);
+                    selectedListsTask.appendChild(addTaskButton);
+
+                    //<button id='clear-button'></button>
+                    const clearButton = document.createElement('button');
+                    clearButton.id = 'clear-button';
+                    clearButton.innerText = '🗑'
+                    clearButton.onclick = () => clearTask(e.target.innerText);
+                    selectedListsTask.appendChild(clearButton);
+
                     updateTasks(tasksLists);
                     return;
                 }
