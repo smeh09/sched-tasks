@@ -51,7 +51,7 @@ const clearTask = (taskListName) => {
     
     updateTasks(tasksLists)
     tasksLists.forEach(taskList => {
-        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
     })
     const addTaskButton = document.createElement('button');
     addTaskButton.id = 'add-task-button';
@@ -103,7 +103,7 @@ function addTask(taskListName) {
                 return;
             }
             taskList['tasks'].push(task);
-            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
             
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
@@ -138,7 +138,7 @@ tasksListEl.addEventListener('click', e => {
             if (taskList['name'] === taskName)
             {
                 e.target.classList.add('selectedList');
-                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'>${tasksListasks}</div>`).join('');
+                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
             }
             else
             {

@@ -381,6 +381,8 @@ a {
 }
 
 .tasksListTasks {
+    display: flex;
+    justify-content: space-between;
     padding: 12px 20px;
     text-align: center;
     width: 50%;
@@ -510,4 +512,20 @@ a {
 .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
+}
+
+.tasksRightArea > div > i {
+    cursor: pointer;
+}
+
+.tasksRightArea {
+    display: flex;
+}
+
+.tasksRightArea > div {
+    margin-right: 15px;
+}
+
+.tasksRightArea > div:last-child {
+    margin-right: 0;
 }
