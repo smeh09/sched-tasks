@@ -99,21 +99,14 @@ function addTask(taskListName) {
         {
             const task = prompt('Task name');
             let continuing = true;
-            tasksLists.forEach(taskList => {
-                if (taskList.tasks.includes(task))
-                {
-                    alert("You cannot have same tasks name! ");
-                    continuing = false;
-                    return;
-                }
-            })
             if (!continuing) return;
             if (!task || task === '' || task.trim() === '') {
                 alert("Wrong input or canceled");
                 return;
             }
-            taskList['tasks'].push(task);
-            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+            d = new Date();
+            taskList['tasks'].push({task, "done": false, "id": d.getTime()});
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
             
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
@@ -148,7 +141,7 @@ tasksListEl.addEventListener('click', e => {
             if (taskList['name'] === taskName)
             {
                 e.target.classList.add('selectedList');
-                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
+                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='taskName'>${tasksListasks['task']}</div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div></div></div>`).join('');
             }
             else
             {
