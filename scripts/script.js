@@ -50,7 +50,7 @@ const clearTask = (taskListName) => {
     })
     updateTasks(tasksLists)
     tasksLists.forEach(taskList => {
-        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='taskName'>${tasksListasks['task']}</div><div class='doneButton'>✔</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
     })
     const addTaskButton = document.createElement('button');
     addTaskButton.id = 'add-task-button';
@@ -84,8 +84,7 @@ const clearList = () => {
         tasksLists = [];
 
         updateTasks(tasksLists)
-        selectedListsTask.innerHTML = `<img style="width: 170px;margin: auto;" src="https://cdn.iconscout.com/icon/premium/png-256-thumb/no-task-3082561-2586646.png" alt="No list selected">
-        <h3 style="color: white;text-align: center; margin-top: 20px; margin-left: 30px;">No list selected</h3>`
+        selectedListsTask.innerHTML = ``;
         viewLists();
     }
 }
@@ -105,7 +104,7 @@ function addTask(event, taskListName) {
             }
             d = new Date();
             taskList['tasks'].push({task, "id": d.getTime()});
-            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='taskName'>${tasksListasks['task']}</div><div class='doneButton'>✔</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
@@ -140,7 +139,7 @@ tasksListEl.addEventListener('click', e => {
             if (taskList['name'] === taskName)
             {
                 e.target.classList.add('selectedList');
-                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='taskName'>${tasksListasks['task']}</div><div class='doneButton'>✔</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             }
             else
             {
@@ -200,11 +199,6 @@ function addList() {
     viewLists();
 }
 
-function playAnimation() {
-    emojiRain = document.querySelector('.emoji-rain')
-    emojiRain.classList.add('emoji-rain-playing');
-}
-
 // deleting or editing a specefic task
 
 selectedListsTask.addEventListener('click', (e) => {
@@ -237,7 +231,7 @@ selectedListsTask.addEventListener('click', (e) => {
                 if (taskList.name === selectedListName)
                 {
                     tasksLists[i]['tasks'][index]['task'] = taskNewName;
-                    taskListEditIcon.parentElement.parentElement.parentElement.childNodes[0].innerText = taskNewName;
+                    taskListEditIcon.parentElement.parentElement.parentElement.childNodes[0].childNodes[1].innerText = taskNewName;
 
                     updateTasks(tasksLists);
                     return;
@@ -255,7 +249,6 @@ selectedListsTask.addEventListener('click', (e) => {
                     tasksLists[i]['tasks'].splice(index, 1)
 
                     document.querySelectorAll('.tasksListTasks')[index].style.display = 'none';
-                    playAnimation();
                     updateTasks(tasksLists);
                     return;
                 }

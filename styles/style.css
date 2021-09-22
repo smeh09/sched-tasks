@@ -385,17 +385,11 @@ a {
     justify-content: space-between;
     padding: 12px 20px;
     text-align: center;
-    width: 50%;
-    margin: auto;
+    width: 100%;
+    border-bottom: 3px solid rgb(126, 119, 255);
+    margin: 10px auto;
     opacity: 0.8;
     transition: all 0.15s;
-}
-
-.tasksListTasks:nth-child(even) {
-    background: #c9c9c9;
-}
-
-.tasksListTasks:nth-child(odd) {
     background: #e7e7e7;
 }
 
@@ -405,9 +399,11 @@ a {
 
 #selected-lists-task {
     width: 75%;
-    padding-top: 50px;
+    padding: 50px;
     margin: auto;
     text-align: center;
+    opacity: 0.9;
+    border-radius: 1rem;
 }
 
 .why-use-us > img {
@@ -553,32 +549,20 @@ i:hover {
     transform: scale(1.26);
 }
 
+.taskName {
+    width: 100%;
+}
+
 body {
     overflow-x: hidden;
 }
 
-.emoji-rain {
-    position: absolute;
-    display: flex;
-    top: -30px;
-    width: 100%;
-    justify-content: center;
-    transition: all 3s;
-}
-
-.emoji-rain-playing {
-    animation-name: fall;
-    display: flex;
-    position: absolute;
-    width: 100%;
-    overflow: hidden;
-    justify-content: center;
-    background: transparent;
-    transition: all 3s;
-    animation-duration: 2s;
-}
-
-@keyframes fall {
-    0%   {background:transparent; top:0px;}
-    100% {background:transparent; top:97vh;}
+.container-lists {
+    margin-top: 10%;
+    width: 90%;
+    background: rgb(188, 185, 255);
+    opacity: 0.9;
+    padding: 0 !important;
+    height: 50vh;
+    overflow-y: scroll;
 }

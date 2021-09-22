@@ -12,16 +12,6 @@
 </head>
 <!-- Img when things done https://unpaper.com/wp-content/uploads/2019/06/22.-How-to-properly-utilise-the-task-list-to-complete-the-list-of-tasks.png -->
 <body>
-    <div class="emoji-rain">
-        <div class="emoji">😊</div>
-        <div class="emoji">😎</div>
-        <div class="emoji">😃</div>
-        <div class="emoji">🙂</div>
-        <div class="emoji">👌</div>
-        <div class="emoji">😉</div>
-        <div class="emoji">🤗</div>
-        <div class="emoji">😌</div>
-    </div>
     <main id='app-main'>
         <div id="tasks-list-container">
             <button class='btn' id='tasks-list-add-btn' onclick='addList()'>Add a List</button>
@@ -31,9 +21,9 @@
 
             </div>
         </div>
-        <div id="selected-lists-task" style="color: black">
-            <img style="width: 170px;margin: auto;" src="https://cdn-icons-png.flaticon.com/512/906/906334.png" alt="No list selected">
-            <h3 style="color: white;text-align: center; margin-top: 20px; margin-left: 10px;">No list selected</h3>
+        <div class="container-lists">
+            <div id="selected-lists-task" style="color: black">
+            </div>
         </div>
     </main>
 </body>
