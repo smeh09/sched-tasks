@@ -399,6 +399,7 @@ a {
 
 #selected-lists-task {
     width: 75%;
+    background: rgb(192, 189, 255);
     padding: 50px;
     margin: auto;
     text-align: center;
@@ -560,7 +561,6 @@ body {
 .container-lists {
     margin-top: 10%;
     width: 90%;
-    background: rgb(188, 185, 255);
     opacity: 0.9;
     padding: 0 !important;
     height: 50vh;
