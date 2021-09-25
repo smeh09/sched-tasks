@@ -50,7 +50,7 @@ const clearTask = (taskListName) => {
     })
     updateTasks(tasksLists)
     tasksLists.forEach(taskList => {
-        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+        selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div id=${tasksListasks['id']} class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
     })
     const addTaskButton = document.createElement('button');
     addTaskButton.id = 'add-task-button';
@@ -104,7 +104,7 @@ function addTask(event, taskListName) {
             }
             d = new Date();
             taskList['tasks'].push({task, "id": d.getTime()});
-            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+            selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div id=${tasksListasks['id']} class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             
             const addTaskButton = document.createElement('button');
             addTaskButton.id = 'add-task-button';
@@ -139,7 +139,7 @@ tasksListEl.addEventListener('click', e => {
             if (taskList['name'] === taskName)
             {
                 e.target.classList.add('selectedList');
-                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
+                selectedListsTask.innerHTML = taskList['tasks'].map(tasksListasks => `<div id=${tasksListasks['id']} class='tasksListTasks'><div class='tasksRightArea'><div class='doneButton'>✔</div><div class='taskName'>${tasksListasks['task']}</div></div><div class='tasksRightArea'><div class='delete-task-button'><i class="fa fa-trash tasksListsDeleteIcon" aria-hidden="true"></i></div><div class='tasksListsEditIcon'><i class="fa fa-pencil-square-o tasksListEditIcon" aria-hidden="true"></i></div></div></div>`).join('');
             }
             else
             {
@@ -205,15 +205,21 @@ selectedListsTask.addEventListener('click', (e) => {
     document.querySelectorAll('.tasksListsDeleteIcon').forEach((taskListDeleteIcon, index) => {
         if (taskListDeleteIcon === e.target)
         {
-            selectedListName = document.querySelector('.selectedList').innerText;
-            tasksLists.forEach((taskList, i) => {
-                if (taskList.name === selectedListName)
+            const selectedListName = document.querySelector('.selectedList').innerText;
+            const selectedListTask = e.target.parentElement.parentElement.parentElement;
+            const selectedListTaskId = selectedListTask.id;
+            tasksLists.forEach(taskList => {
+                if (taskList['name'] === selectedListName)
                 {
-                    tasksLists[i]['tasks'].splice(index, 1)
-
-                    document.querySelectorAll('.tasksListTasks')[index].style.display = 'none';
-                    updateTasks(tasksLists);
-                    return;
+                    taskList['tasks'].forEach((taskListTask, i) => {
+                        if (taskListTask['id'] == selectedListTaskId)
+                        {
+                            selectedListTask.style.display = 'none';
+                            taskList['tasks'].splice(i, 1)
+                            updateTasks(tasksLists);
+                            return;
+                        }
+                    })
                 }
             })
         }
