@@ -248,15 +248,22 @@ selectedListsTask.addEventListener('click', (e) => {
     document.querySelectorAll('.doneButton').forEach((doneButtonsing, index) => {
         if (doneButtonsing === e.target)
         {
-            selectedListName = document.querySelector('.selectedList').innerText;
-            tasksLists.forEach((taskList, i) => {
-                if (taskList.name === selectedListName)
+            const selectedListName = document.querySelector('.selectedList').innerText;
+            const selectedListTask = e.target.parentElement.parentElement;
+            console.log(selectedListTask)
+            const selectedListTaskId = selectedListTask.id;
+            tasksLists.forEach(taskList => {
+                if (taskList['name'] === selectedListName)
                 {
-                    tasksLists[i]['tasks'].splice(index, 1)
-
-                    document.querySelectorAll('.tasksListTasks')[index].style.display = 'none';
-                    updateTasks(tasksLists);
-                    return;
+                    taskList['tasks'].forEach((taskListTask, i) => {
+                        if (taskListTask['id'] == selectedListTaskId)
+                        {
+                            selectedListTask.style.display = 'none';
+                            taskList['tasks'].splice(i, 1)
+                            updateTasks(tasksLists);
+                            return;
+                        }
+                    })
                 }
             })
         }
