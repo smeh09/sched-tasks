@@ -250,7 +250,6 @@ selectedListsTask.addEventListener('click', (e) => {
         {
             const selectedListName = document.querySelector('.selectedList').innerText;
             const selectedListTask = e.target.parentElement.parentElement;
-            console.log(selectedListTask)
             const selectedListTaskId = selectedListTask.id;
             tasksLists.forEach(taskList => {
                 if (taskList['name'] === selectedListName)
@@ -261,7 +260,10 @@ selectedListsTask.addEventListener('click', (e) => {
                             selectedListTask.style.display = 'none';
                             taskList['tasks'].splice(i, 1)
                             updateTasks(tasksLists);
-                            return;
+                        }
+                        if (taskList['tasks'].length === 0)
+                        {
+                            alert("YAY! You finished all the tasks, give yourself some rest...")
                         }
                     })
                 }
